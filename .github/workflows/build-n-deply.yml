@@ -59,9 +59,9 @@ jobs:
           NEXT_PUBLIC_FIREBASE_ADMIN_AUTH_PROVIDER_X509_CERT_URL: ${{ secrets.NEXT_PUBLIC_FIREBASE_ADMIN_AUTH_PROVIDER_X509_CERT_URL }}
           NEXT_PUBLIC_FIREBASE_ADMIN_CLIENT_X509_CERT_URL: ${{ secrets.NEXT_PUBLIC_FIREBASE_ADMIN_CLIENT_X509_CERT_URL }}
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         # https://github.com/JamesIves/github-pages-deploy-action
-        uses: JamesIves/github-pages-deploy-action@4.4.0
+        uses: JamesIves/github-pages-deploy-action@4.4.1
         with:
           branch: gh-pages
           folder: out
