@@ -38,7 +38,7 @@ jobs:
 
       - name: Build
         run: |
-          npm i
+          npm ci
           npm run build
           npm run deploy
         env:
@@ -59,12 +59,12 @@ jobs:
           NEXT_PUBLIC_FIREBASE_ADMIN_AUTH_PROVIDER_X509_CERT_URL: ${{ secrets.NEXT_PUBLIC_FIREBASE_ADMIN_AUTH_PROVIDER_X509_CERT_URL }}
           NEXT_PUBLIC_FIREBASE_ADMIN_CLIENT_X509_CERT_URL: ${{ secrets.NEXT_PUBLIC_FIREBASE_ADMIN_CLIENT_X509_CERT_URL }}
 
-      # - name: Deploy to GitHub Pages
-        # https://github.com/JamesIves/github-pages-deploy-action
-        # uses: JamesIves/github-pages-deploy-action@4.4.1
-        # with:
-          # branch: gh-pages
-          # folder: out
+      - name: Deploy to GitHub Pages
+        # uses: JamesIves/github-pages-deploy-action@ba1486788b0490a235422264426c45848eac35c6
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        with:
+          branch: gh-pages
+          folder: out
           
       # Deployment job
   deploy:
