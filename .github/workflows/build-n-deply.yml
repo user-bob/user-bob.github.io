@@ -39,7 +39,6 @@ jobs:
       - name: Build
         run: |
           npm ci
-          npm run build
           npm run deploy
         env:
           NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}
