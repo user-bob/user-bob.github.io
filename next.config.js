@@ -8,11 +8,15 @@ const nextConfig = {
   },
   output: 'export',
   basePath: !debug ? '/user-bob.github.io' : '',
-  assetPrefix: !debug ? '/user-bob.github.io' : '',
-  images: {
-    loader: 'akamai',
-    path: '',
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      '/': { page: '/' },
+    }
   },
+  // assetPrefix: !debug ? '/user-bob.github.io' : '',
 }
 
 module.exports = nextConfig
