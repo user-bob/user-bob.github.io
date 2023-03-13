@@ -19,7 +19,7 @@ export default function Home() {
     // You also have your firebase app initialized
   }, [loading, user])
 
-  // if (!user) return <h1 className='items-center justify-center w-full min-h-screen text-7xl'>U need to login</h1>;
+  if (!user) return <h1 className='items-center justify-center w-full min-h-screen text-7xl'>U need to login</h1>;
   return (
     <>
       <Head>
