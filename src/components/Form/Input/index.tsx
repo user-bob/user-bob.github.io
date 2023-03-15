@@ -1,24 +1,33 @@
 // @flow
 import * as React from 'react';
-
-type Props = {
-    id: string;
-    label: string;
-    props: React.ReactNode;
-};
-export const TextInput = ({id, label, ...rest}: Props) => {
+import classNames from "@/utils/class-names";
+// @ts-ignore
+export const TextInput = ({id, label, error, ...props}) => {
     return (
         <div>
-            <label htmlFor={id} className="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300">
+            <label htmlFor={id} className={classNames(
+                error
+                    ? "text-red-700 dark:text-red-500"
+                    : "text-gray-900 dark:text-white",
+                "block mb-2 text-sm font-medium"
+            )}>
                 {label}
             </label>
             <input
-                className="bg-gray-50 dark:bg-gray-800 rounded-md border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full py-2 px-3.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                // className={"dark:bg-gray-800 block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"}
+                className={classNames(
+                    error
+                        ? "border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500 dark:bg-red-100 dark:border-red-400"
+                        : "dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:ring-primary-600 focus:border-primary-600 border-gray-300 text-gray-900 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white",
+                    "border bg-gray-50 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700"
+                )}
                 id={id}
-                name={id}
-                {...rest}
+                {...props}
             />
+            {error && (
+                <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+                    {error}
+                </p>
+            )}
         </div>
     );
 };
