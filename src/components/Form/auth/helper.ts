@@ -140,8 +140,8 @@ export function loginWithGoogle() {
       // const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
-      console.log("sign with google", user);
-      window.alert({ cred: credential });
+      console.log("sign with google user", user)
+      console.log("sign with google cred", credential)
       // ...
     })
     .catch((error) => {
