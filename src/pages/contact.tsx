@@ -1,10 +1,7 @@
 import { useState } from 'react'
 import { HiChevronDown } from 'react-icons/hi2'
 import { Switch } from '@headlessui/react'
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
+import classNames from '@/utils/class-names'
 
 export default function Contact() {
   const [agreed, setAgreed] = useState(false)
@@ -54,7 +51,7 @@ export default function Contact() {
                 name="first-name"
                 id="first-name"
                 autoComplete="given-name"
-                className="dark:bg-gray-800 block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
+                className="dark:bg-gray-800 block bg-gray-50 dark:text-gray-100 w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -68,7 +65,7 @@ export default function Contact() {
                 name="last-name"
                 id="last-name"
                 autoComplete="family-name"
-                className="dark:bg-gray-800 block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
+                className="dark:bg-gray-800 bg-gray-50 dark:text-gray-100 block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -82,7 +79,7 @@ export default function Contact() {
                 name="email"
                 id="email"
                 autoComplete="email"
-                className="dark:bg-gray-800 block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
+                className="dark:bg-gray-800 bg-gray-50 dark:text-gray-100 block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -114,7 +111,7 @@ export default function Contact() {
                 name="phone-number"
                 id="phone-number"
                 autoComplete="tel"
-                className="dark:bg-gray-800 block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
+                className="dark:bg-gray-800 bg-gray-50 dark:text-gray-100 block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -127,7 +124,7 @@ export default function Contact() {
                 name="message"
                 id="message"
                 rows={4}
-                className="dark:bg-gray-800 block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
+                className="dark:bg-gray-800 bg-gray-50 dark:text-gray-100 block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-700 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
                 defaultValue={''}
               />
             </div>

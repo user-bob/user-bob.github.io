@@ -1,5 +1,3 @@
-'use client'
-
 import React, { useState, useEffect, useContext, createContext } from "react";
 import { getAuth, onAuthStateChanged, signOut as signout } from "firebase/auth";
 import { setCookie, destroyCookie } from "nookies";
