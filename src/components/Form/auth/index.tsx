@@ -21,7 +21,7 @@ const registerContent = {
   buttonText: "Sign Up",
 };
 
-const signinContent = {
+const loginContent = {
   linkUrl: "/signup",
   accountText: "Don't have an account?",
   otherPage: "Sign up",
@@ -45,7 +45,7 @@ const AuthForm = ({ type }: PageProps) => {
   const [formState, setFormState] = useState({ ...initial });
   const [formStateErrors, setFormStateErrors] = useState({ ...initial });
 
-  const content = type === "register" ? registerContent : signinContent;
+  const content = type === "register" ? registerContent : loginContent;
   const router = useRouter();
 
   // This function is called when the user changes the value of an input.
@@ -53,7 +53,6 @@ const AuthForm = ({ type }: PageProps) => {
   const onInputChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     const { value, name } = event.target;
     setFormState((s) => ({ ...s, [name]: value }));
-    validateInput(event);
   };
 
   // This function is called when the form is submitted. It prevents
@@ -61,56 +60,32 @@ const AuthForm = ({ type }: PageProps) => {
   // If there are no errors, it calls handleSubmit.
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    validateInput();
     if (!formStateErrors) {
-      handleSubmit(e);
+      handleSubmit(e).then(r => {
+        console.log(r);
+      });
     }
   };
 
   // This function validates the input of the user and sets the state of the component accordingly
-  const validateInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let { name, value } = e.target;
+  const validateInput = () => {
     setFormStateErrors((s) => {
-      const stateObj = { ...s, [name]: "" }; // Create a new object using the previous errors and the new value
-      switch (name) {
-        case "email":
-          if (value && !validateEmail(value)) {
-            // Check if the email is valid
-            stateObj[name] = "Please enter a valid email";
-          }
-          break;
-
-        case "password":
-          if (!value) {
-            // Check if the password is not empty
-            stateObj[name] = "";
-          } else if (!validatePassword(value)) {
-            // Check if the password is valid
-            stateObj[name] = "Please must be 8 characters or above";
-          } else if (
-            formState.confirmPassword &&
-            value !== formState.confirmPassword
-          ) {
-            stateObj["confirmPassword"] =
-              "Password and Confirm Password does not match.";
-          } else {
-            stateObj["confirmPassword"] = formState.confirmPassword
-              ? ""
-              : formStateErrors.confirmPassword;
-          }
-          break;
-
-        // This code checks if the password and confirm password match, if not it sets the error message.
-        case "confirmPassword":
-          if (value && formState.password && value !== formState.password) {
-            stateObj[name] = "Password and Confirm Password does not match.";
-          }
-          break;
-
-        default:
-          break;
+      const {email, password, confirmPassword} = formState;
+        const errObj = { ...s };
+      if (!email || !validateEmail(email)) {
+        // Check if the email is valid
+        errObj.email = "Please enter a valid email";
       }
-
-      return stateObj;
+      if (!password || !validatePassword(password)) {
+        // Check if the password is valid
+        errObj.password = "Please must be 8 characters or above";
+      }
+      // Check if the confirmation password matches the password
+      if (!confirmPassword || confirmPassword !== password) {
+        errObj.confirmPassword = "Password and Confirm Password does not match.";
+      }
+      return errObj;
     });
   };
 
@@ -132,7 +107,7 @@ const AuthForm = ({ type }: PageProps) => {
       }
       // If message is success, push user to home page
       if (msg === "success") {
-        router.push("/");
+        await router.push("/");
         // Reset form state
         setFormState(initial);
       } else {
