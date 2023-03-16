@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext, createContext } from "react";
 import { getAuth, onAuthStateChanged, signOut as signout } from "firebase/auth";
 import { setCookie, destroyCookie } from "nookies";
 import { createFirebaseApp } from "@/firebase/init";
+import { TOKEN_NAME } from "@/constants/cokie";
 
 export type TIdTokenResult = {
   token: string;
@@ -19,17 +20,17 @@ type Props = {
   children: React.ReactNode;
 };
 
-type UserContext = {
+type UserContextProp = {
   user: TIdTokenResult | null;
   loading: boolean;
 };
 
-const authContext = createContext<UserContext>({
+const userContext = createContext<UserContextProp>({
   user: null,
   loading: true,
 });
 
-export default function AuthContextProvider({ children }: Props) {
+export default function UserContextProvider({ children }: Props) {
   const [user, setUser] = useState<TIdTokenResult | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -42,7 +43,7 @@ export default function AuthContextProvider({ children }: Props) {
         if (user) {
           // Save token for backend calls
           user.getIdToken().then((token) =>
-            setCookie(null, "idToken", token, {
+            setCookie(null, TOKEN_NAME, token, {
               maxAge: 30 * 24 * 60 * 60,
               path: "/",
             })
@@ -66,17 +67,17 @@ export default function AuthContextProvider({ children }: Props) {
   }, []);
 
   return (
-    <authContext.Provider value={{ user, loading }}>
+    <userContext.Provider value={{ user, loading }}>
       {children}
-    </authContext.Provider>
+    </userContext.Provider>
   );
 }
 
-export const useAuth = () => useContext(authContext);
+export const useUser = () => useContext(userContext);
 
 export const signOut = async () => {
   const app = createFirebaseApp()
   const auth = getAuth(app)
-  destroyCookie(null, "idToken");
+  destroyCookie(null, TOKEN_NAME);
   await signout(auth);
 };

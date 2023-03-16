@@ -4,7 +4,6 @@ import admin from "@/firebase/init-admin";
 
 export const authServer = async (ctx: GetServerSidePropsContext) => {
   const { idToken } = nookies.get(ctx);
-
   try {
     return admin.auth().verifyIdToken(idToken);
   } catch (err) {

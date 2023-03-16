@@ -1,4 +1,4 @@
-import {useAuth} from "@/context/authContext";
+import {useUser} from "@/context/authContext";
 import Link from "next/link";
 import React, {useState} from "react";
 import Image from "next/image";
@@ -6,10 +6,10 @@ import {BsGraphUpArrow} from "react-icons/bs";
 import {HiOutlineMagnifyingGlass} from "react-icons/hi2";
 import Notifications from "@/components/Dropdowns/Notifications";
 import Profile from "@/components/Dropdowns/Profile";
-import ModalForm from "@/components/Form/modal";
+import FormModal from "@/components/Form/modal/form-modal";
 
 export default function Header() {
-    const {user} = useAuth();
+    const {user} = useUser();
     const [isOpen, setIsOpen] = useState(false);
 
 
@@ -78,7 +78,7 @@ export default function Header() {
                 </div>
             </div>
             {isOpen && (
-                <ModalForm isOpen={isOpen} setIsOpen={setIsOpen}/>)}
+                <FormModal isOpen={isOpen} setIsOpen={setIsOpen}/>)}
         </nav>
     );
 }

@@ -2,29 +2,32 @@ import React from 'react';
 import {TextInput} from "@/components/Form/Input";
 import GoogleSignInButton from "@/components/buttons/GoogleSignInButton";
 import {loginWithGoogle} from "@/components/Form/auth/helper";
+import Link from 'next/link';
 
 
 type AuthFormProps = {
-    onClick: () => void,
+    closeClick: () => void,
     content: { buttonText: string; linkUrl: string; header: string; accountText: string; otherPage: string },
     onSubmit: (e: React.FormEvent<HTMLFormElement>) => void,
     formState: { password: string; confirmPassword: string; email: string },
     onChange: React.ChangeEventHandler<HTMLInputElement>,
     formStateErrors: { password: string; confirmPassword: string; email: string },
-    login: boolean, onClick1: () => void
+    login: boolean, swithAccClick: () => void,
+    googleClick: () => void
 }
 
 const AuthForm = (
     {
-        onClick, onClick1, content, formStateErrors,
-        formState, onChange, onSubmit, login
+        closeClick, swithAccClick, content, formStateErrors,
+        formState, onChange, onSubmit, login,
+        googleClick
     }: AuthFormProps
 ) => {
-    return (<div className="relative bg-white rounded-xl shadow dark:bg-gray-700">
+    return (<div className="relative bg-white shadow rounded-xl dark:bg-gray-800">
         <button
             type="button"
             className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-            onClick={onClick}
+            onClick={closeClick}
         >
             <svg
                 aria-hidden="true"
@@ -41,7 +44,7 @@ const AuthForm = (
             </svg>
             <span className="sr-only">Close modal</span>
         </button>
-        <div className="px-6 py-6 lg:px-8 space-y-4 md:space-y-6">
+        <div className="px-6 py-6 space-y-4 lg:px-8 md:space-y-6">
             <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">
                 {content.header}
             </h3>
@@ -81,6 +84,16 @@ const AuthForm = (
                         required
                     />
                 )}
+                {!login && (
+                    <div className="flex items-start">
+                    <div className="flex items-center h-5">
+                      <input id="terms" aria-describedby="terms" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required />
+                    </div>
+                    <div className="ml-3 text-sm">
+                      <label htmlFor="terms" className="font-light text-gray-500 dark:text-gray-300">I accept the <Link className="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</Link></label>
+                    </div>
+                </div>
+                )}
                 {login && (
                     <div className="flex justify-between">
                         <div className="flex items-start">
@@ -116,7 +129,7 @@ const AuthForm = (
                 <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
                     {content.accountText}{" "}
                     <button
-                        onClick={onClick1}
+                        onClick={swithAccClick}
                         className="text-blue-700 hover:underline dark:text-blue-500"
                     >
                         {content.otherPage}
@@ -124,11 +137,11 @@ const AuthForm = (
                 </div>
             </form>
             <div className="flex flex-row items-center justify-center space-x-4">
-                <div className="h-px w-1/2 bg-gray-500"/>
+                <div className="w-1/2 h-px bg-gray-500"/>
                 <span className="text-gray-500 dark:text-gray-400">or</span>
-                <div className="h-px w-1/2 bg-gray-500"/>
+                <div className="w-1/2 h-px bg-gray-500"/>
             </div>
-            <GoogleSignInButton onClick={loginWithGoogle}/>
+            <GoogleSignInButton onClick={googleClick}/>
         </div>
     </div>);
 };
