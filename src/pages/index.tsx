@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import {useAuth} from '@/context/authContext';
 import React, {useEffect} from 'react';
 // import {doc, getFirestore, setDoc} from 'firebase/firestore'
@@ -31,21 +30,16 @@ const Home: NextPage = () => {
     }
     return (
         <>
-            <Head>
-                <title>ElecPrice</title>
-                <meta name="description" content="My home page"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                <link rel="icon" href="/favicon.ico"/>
-            </Head>
             <main className={'w-full py-4 px-6 md:px-8'}>
-                <div className={'grid grid-flow-row gap-4'}>
+                <div className={'grid grid-flow-row gap-4 auto-rows-auto'}>
                     <div className={'grid grid-flow-col gap-4 overflow-auto hover:overflow-x-scroll scrollbar-hide'}>
                         {items}
                     </div>
-                    <div className="grid grid-cols lg:grid-cols-4 md:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 md:grid-cols-3">
                         {items}
                     </div>
                 </div>
+                {/*<Example />*/}
             </main>
         </>
     )

@@ -5,10 +5,10 @@ import Layout from "@/components/Layout";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <FirebaseProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </FirebaseProvider>
+        <FirebaseProvider>
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+        </FirebaseProvider>
   );
 }
