@@ -1,31 +1,32 @@
-import { Menu, Transition } from '@headlessui/react'
-import Link from 'next/link'
-import React, { Fragment } from 'react'
-import Image from 'next/image'
-import { useAuth } from '@/context/authContext'
+import { Menu, Transition } from "@headlessui/react";
+import { useRouter } from "next/router";
+import React, { Fragment } from "react";
+import Image from "next/image";
+import { useUser, signOut } from "@/context/authContext";
 
 const menuItems = [
-    { name: "Your Profile", href: "#" },
-    { name: "Settings", href: "#" },
-    { name: "Sign out", href: "#" },
-  ];
+  { name: "Your Profile", href: "#", onclick: () => {} },
+  { name: "Settings", href: "#", onclick: () => {} },
+  { name: "Sign out", href: "#", onclick: async () => await signOut() },
+];
 
 const Profile = () => {
-    const { user } = useAuth()
+  const { user } = useUser();
+  const router = useRouter();
+  const img =
+    user && user.claims.picture
+      ? user.claims.picture
+      : "https://source.unsplash.com/random?person";
   return (
     <Menu as="div" className="relative">
       <div>
         <Menu.Button
-          className={`${
-            user
-              ? "rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-              : ""
-          } flex items-center justify-center text-sm bg-gray-800`}
+          className={`rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 flex items-center justify-center text-sm bg-gray-800`}
         >
           <span className="sr-only">Open user menu</span>
           <Image
             className="w-8 h-8 rounded-full"
-            src="https://source.unsplash.com/random"
+            src={img}
             alt=""
             width={32}
             height={32}
@@ -46,33 +47,34 @@ const Profile = () => {
             {() => (
               <div className="px-4 py-3 text-sm font-semibold text-gray-900 dark:text-white">
                 <div>Bonnie Green</div>
-                <div className="font-medium truncate">
-                  name@flowbite.com
-                </div>
+                <div className="font-medium truncate">name@flowbite.com</div>
               </div>
             )}
           </Menu.Item>
           {menuItems.map((item) => (
             <Menu.Item key={item.name}>
               {({ active }) => (
-                <Link
-                  href={item.href}
+                <button
                   className={`
                     ${
                       active
                         ? "bg-gray-100 dark:bg-gray-600 dark:text-white"
                         : "text-gray-700 dark:text-gray-200"
-                    } block text-sm px-4 py-2`}
+                    } block w-full text-start text-sm px-4 py-2`}
+                  onClick={() => {
+                    item.onclick();
+                    router.reload();
+                  }}
                 >
                   {item.name}
-                </Link>
+                </button>
               )}
             </Menu.Item>
           ))}
         </Menu.Items>
       </Transition>
     </Menu>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
