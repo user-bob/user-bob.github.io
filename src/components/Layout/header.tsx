@@ -4,8 +4,8 @@ import React, {useState} from "react";
 import Image from "next/image";
 import {BsGraphUpArrow} from "react-icons/bs";
 import {HiOutlineMagnifyingGlass} from "react-icons/hi2";
-import Notifications from "../Dropdowns/Notifications";
-import Profile from "../Dropdowns/Profile";
+import Notifications from "@/components/Dropdowns/Notifications";
+import Profile from "@/components/Dropdowns/Profile";
 import ModalForm from "@/components/Form/modal";
 
 export default function Header() {
