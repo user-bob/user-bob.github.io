@@ -4,7 +4,7 @@ export default function TermsPage() {
   return (
     <Layout>
       <p>
-        This is an example site to demonstrate how to use{" "}
+        This is an example site to demonstrate how to use 
         <a href="https://next-auth.js.org">NextAuth.js</a> for authentication.
       </p>
       <h2>Terms of Service</h2>
