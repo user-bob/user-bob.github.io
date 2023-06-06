@@ -1,7 +1,9 @@
 import React from 'react'
 import {HiCheck, HiHandThumbUp, HiUser,} from "react-icons/hi2";
 import classNames from "classnames";
-import {signOut, useSession} from "next-auth/react";
+import {useSession} from "next-auth/react";
+import {authOptions} from "@/pages/api/auth/[...nextauth]";
+import {getServerSession} from "next-auth";
 
 
 const eventTypes = {
@@ -63,9 +65,12 @@ const categories = [
     {name: 'Video Games', href: '#', id: 9},
     {name: 'Accessories', href: '#', id: 10},
 ]
-const Profile = ({data}: any) => {
+const Index = ({data}: any) => {
     const {data: session} = useSession();
-    const {userRole, emailVerified, provider} = data;
+    // const {userRole, emailVerified, provider} = data;
+    const emailVerified = true;
+    const userRole = 'sad';
+    const provider = 'guest';
     return (
         <>
             <div className="min-h-full]">
@@ -279,16 +284,19 @@ const Profile = ({data}: any) => {
 };
 
 
-export async function getServerSideProps() {
-    // Fetch data from external API
-    const res = await fetch(`http://localhost:3000/api/profile`)
-    // @ts-ignore
-    const {userRole, emailVerified, provider} = await res.json();
+// export async function getServerSideProps(context) {
+//     // Fetch data from external API
+//     const res = await fetch(`http://localhost:3000/api/profile`)
+//     // const {userRole, emailVerified, provider} = await res.json();
+//
+//     // const data = {userRole, emailVerified, provider}
+//
+//     // Pass data to the page via props
+//     return {
+//         props: {
+//             data ,
+//         }
+//     }
+// }
 
-    const data = {userRole, emailVerified, provider}
-
-    // Pass data to the page via props
-    return { props: { data } }
-}
-
-export default Profile;
+export default Index;

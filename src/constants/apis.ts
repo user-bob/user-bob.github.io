@@ -1,0 +1,6 @@
+export const SIGN_IN = '/api/auth/signin'
+export const SIGN_UP = '/api/auth/signup'
+export const SIGN_OUT = '/api/auth/signout'
+export const GET_USER = '/api/auth/user'
+export const GET_USER_BY_ID = '/api/users'
+export const GET_POSTS = '/api/posts'
