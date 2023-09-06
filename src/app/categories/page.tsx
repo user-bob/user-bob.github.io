@@ -171,6 +171,7 @@ interface Item {
 
 const CategoryItem: FC<Item> = ({ item }: { item: string }) => (
   <div className="group aspect-w-2 aspect-h-1 rounded-lg overflow-hidden">
+    {/* eslint-disable-next-line @next/next/no-img-element */}
     <img
       src={`https://source.unsplash.com/featured/?${item}`}
       alt="Two models wearing women's black cotton crewneck tee and off-white cotton crewneck tee."

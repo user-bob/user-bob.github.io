@@ -26,6 +26,7 @@ export const ImageGallery = ({images}: ImageGalleryProps) => {
         <>
             <div className="grid gap-4">
                 <div className={'w-full aspect-w-1 aspect-h-1'}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img className="w-full h-full object-center object-cover sm:rounded-lg"
                          src={selectedImage.src} alt={selectedImage.alt}
                          onClick={() => setOpenModal('dismissible')}
@@ -45,6 +46,7 @@ export const ImageGallery = ({images}: ImageGalleryProps) => {
                                                 className="absolute inset-0 rounded-md overflow-hidden"
                                                 aria-hidden="true"
                                             >
+                                                {/* eslint-disable-next-line @next/next/no-img-element */}
                                                 <img
                                                     src={images[5].src}
                                                     alt={images[5].alt}
@@ -61,6 +63,7 @@ export const ImageGallery = ({images}: ImageGalleryProps) => {
                                             </span>
                                         </span>
                                         ) :
+                                        // eslint-disable-next-line @next/next/no-img-element
                                         <img src={image.src} alt={image.alt}
                                              className="w-full h-full object-center object-cover"
                                              onClick={() => handleImageClick(image)}
@@ -134,6 +137,7 @@ const ImageGalleryModal: FC<ImageGalleryModalProps> = ({
             >
                 {/*<div className="absolute top-1/2 left-1/2 block w-full -translate-x-1/2 -translate-y-1/2">*/}
                 <div className="w-full h-full aspect-h-1 aspect-w-1 md:aspect-w-3 md:aspect-h-2">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                         src={selectedImage.src}
                         alt={selectedImage.alt}
@@ -179,6 +183,7 @@ const ImageGalleryModal: FC<ImageGalleryModalProps> = ({
                                 className="relative h-16 w-16 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-opacity-50">
                                 <>
                                     <span className="sr-only">{image.name}</span>
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img src={image.src} alt={image.alt}
                                          className="w-full h-full object-center object-cover"
                                          onMouseEnter={() => setSelectedImage(image)}

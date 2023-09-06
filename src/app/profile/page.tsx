@@ -267,6 +267,7 @@ const BgImage = () => (
 const Category = ({ name, href, image }: { name: string; href: string; image: string }) => {
   return (
     <div className="relative group flex items-center justify-center w-full h-full max-w-sm overflow-hidden bg-gray-100 rounded-lg shadow-md dark:bg-neutral-800">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={image}
         alt={name}

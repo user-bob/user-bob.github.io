@@ -117,6 +117,7 @@ const TrackedProductsPage = () => {
                                 'flex group items-center hover:bg-gray-100 dark:hover:bg-gray-800 gap-4 xl:px-4 xl:py-2 rounded-lg cursor-pointer',
                                 selectedProduct.title === product.title ? 'bg-gray-100 dark:bg-gray-700' : 'bg-white dark:bg-gray-900'
                             )} onClick={() => setSelectedProduct(product)}>
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
                                     src={product.imageSrc}
                                     alt={product.imageAlt}

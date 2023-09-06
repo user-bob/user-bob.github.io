@@ -17,6 +17,7 @@ export const RelatedProducts = ({products}: { products: RelatedProductProps[] })
                 <div key={product.id}>
                     <div className="relative">
                         <div className="relative w-full h-72 rounded-lg overflow-hidden">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                                 src={product.src}
                                 alt={product.imageAlt}

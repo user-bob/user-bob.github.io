@@ -84,6 +84,7 @@ const MyComponent = ({ params }: { params: { slug: string } }) => {
         >
           {Array.from(Array(10).keys()).map((item, i) => (
             <div key={i}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 className="w-full h-full object-center object-cover"
                 src={`https://source.unsplash.com/featured/?${item}`}
@@ -166,6 +167,7 @@ const Product: FC<ProductComponentProps> = ({ product, width }) => {
         <div className="gap-4">
           <span className="sr-only">{product.title}</span>
           <div className="w-full bg-gray-200 rounded-t-lg overflow-hidden aspect-w-1 aspect-h-1">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={product.imageSrc}
               alt={product.imageAlt}

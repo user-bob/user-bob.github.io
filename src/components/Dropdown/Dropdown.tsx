@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 
 import type {ButtonProps, DeepPartial} from '../..';
 import {Button, useTheme} from '../..';

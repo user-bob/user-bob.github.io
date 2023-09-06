@@ -82,6 +82,7 @@ export default async function Home() {
               href={prod.url}
               className={"h-64 w-64 rounded-md overflow-hidden"}
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={prod.imgSrc} alt={prod.imgAlt} className={"h-full w-full object-cover"} />
             </HScrollItem>
           ))}

@@ -93,6 +93,7 @@ export const NotificationsComponent: FC<NotificationsComponentProps> = ({
                         key={item.id}
                         className={theme.body.item.base}
                     >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                             src={item.product.imgSrc}
                             alt={item.product.imgAlt}
@@ -131,4 +132,3 @@ export const NotificationsComponent: FC<NotificationsComponentProps> = ({
         </PopoverComponent>
     );
 };
-

@@ -118,6 +118,7 @@ export const SocialButton: FC<SocialButtonProps> = ({src, text, className, setLo
             await signIn(text.toLowerCase())
         }}
     >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={src} alt="metamask" className="h-6 w-6"/>
         Continue with {text}
     </Button>

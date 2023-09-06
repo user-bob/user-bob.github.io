@@ -40,6 +40,7 @@ const SidebarLogo: FC<SidebarLogoProps> = ({
             className={twMerge(theme.base, className)}
             {...props}
         >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img alt={imgAlt} src={img} className={theme.img}/>
             <span className={theme.collapsed[isCollapsed ? 'on' : 'off']} id={`flowbite-sidebar-logo-${id}`}>
         {children}

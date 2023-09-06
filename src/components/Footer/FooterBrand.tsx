@@ -37,6 +37,7 @@ export const FooterBrand: FC<FooterBrandProps & ComponentProps<'a'> & ComponentP
             {href ? (
                 <a data-testid="flowbite-footer-brand" href={href}
                    className={twMerge(theme.base, className)} {...props}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img alt={alt} src={src} className={theme.img}/>
                     <span data-testid="flowbite-footer-brand-span" className={theme.span}>
             {name}
@@ -44,6 +45,7 @@ export const FooterBrand: FC<FooterBrandProps & ComponentProps<'a'> & ComponentP
                     {children}
                 </a>
             ) : (
+                // eslint-disable-next-line @next/next/no-img-element
                 <img
                     alt={alt}
                     data-testid="flowbite-footer-brand"

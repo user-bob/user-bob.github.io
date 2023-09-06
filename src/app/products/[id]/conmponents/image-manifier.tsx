@@ -27,6 +27,7 @@ const ImageMagnifier = ({
                     width: width
                 }}
             >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                     src={src}
                     style={{height: height, width: width}}

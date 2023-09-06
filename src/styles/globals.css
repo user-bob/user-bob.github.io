@@ -4,27 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.color-options {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
 @media screen and (max-width: 600px) {
-    .color-options {
-        margin-bottom: 20px;
-        flex-direction: column;
-        position: absolute;
-        right: 50%;
-        bottom: 40px;
-        transform: translateY(-50%);
-    }
 
-    .input-position {
-        width: 100%;
-        order: 2;
-        margin-top: 10px;
-    }
 }
 
 .circle {
@@ -60,24 +41,6 @@
     flex-direction: row;
 }
 
-.input-position {
-    width: 50%;
-    position: relative;
-}
-
-.small-image {
-    width: 100%;
-    display: block;
-    visibility: hidden;
-}
-
 .show {
     visibility: visible;
-}
-
-.large-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
 }

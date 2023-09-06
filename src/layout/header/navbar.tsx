@@ -561,6 +561,7 @@ export const MobileSidebar: FC = () => {
                         {category.featured?.map((item) => (
                           <div key={item.title} className="group relative">
                             <div className="aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden group-hover:opacity-75">
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
                               <img
                                 src={item.imageSrc}
                                 alt={item.imageAlt}

@@ -112,6 +112,7 @@ const AvatarComponent: FC<AvatarProps> = ({
             <div className="relative">
                 {img ? (
                     typeof img === 'string' ? (
+                        // eslint-disable-next-line @next/next/no-img-element
                         <img alt={alt} src={img} {...imgProps} />
                     ) : (
                         img({alt, ...imgProps})

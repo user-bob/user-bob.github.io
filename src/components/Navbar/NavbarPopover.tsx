@@ -1,6 +1,5 @@
 import { DeepPartial, PopoverComponent, useTheme } from "@/components";
 import { mergeDeep } from "@/helpers/merge-deep";
-import { Button } from "@material-tailwind/react";
 import { ComponentProps, FC, PropsWithChildren } from "react";
 
 export interface NavbarPopoverTheme {
@@ -97,6 +96,7 @@ export const NavbarPopover: FC<NavbarPopoverProps> = ({
 					{content.featured?.map((item, index) => (
 						<div key={index} className={theme.featured.item.base}>
 							<div className={theme.featured.item.img.base}>
+								{/* eslint-disable-next-line @next/next/no-img-element */}
 								<img
 									src={item.imageSrc}
 									alt={item.imageAlt}

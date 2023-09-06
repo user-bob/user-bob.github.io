@@ -45,6 +45,7 @@ export const NotificationAlert: FC<NotificationAlertProps> = ({
                             <div className="p-4">
                                 <div className="flex items-start">
                                     <div className="flex-shrink-0">
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <img
                                             src={message.img}
                                             alt={message.title}

@@ -337,6 +337,7 @@ export const SearchContent: FC<SearchContentProps> = ({
                                                 >
                                                     {({active}) => (
                                                         <>
+                                                            {/* eslint-disable-next-line @next/next/no-img-element */}
                                                             <img
                                                                 src={product.imgSrc}
                                                                 alt=""
@@ -364,6 +365,7 @@ export const SearchContent: FC<SearchContentProps> = ({
                                     <div
                                         className={theme.active.base}>
                                         <div className="flex-none p-6 text-center">
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
                                             <img
                                                 src={activeOption.imgSrc}
                                                 alt=""

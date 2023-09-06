@@ -60,6 +60,7 @@ export const Card: FC<CardProps> = ({
         >
             {imgSrc && (
                 <div className={twMerge(theme.img.base)}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                         alt={imgAlt ?? ''}
                         src={imgSrc}
