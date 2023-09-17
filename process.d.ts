@@ -17,5 +17,6 @@ declare namespace NodeJS {
         NEXT_PUBLIC_GOOGLE_SECRET: string
         CREDENTIALS_ID: string
         CREDENTIALS_NAME: string
+        
     }
 }
