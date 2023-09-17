@@ -4,6 +4,7 @@ import { separatorString } from './constants';
 
 class ItemsMap extends Map<Item[0], Item[1]> {
 	public toArr() {
+		// @ts-ignore
 		return this.sort([...this]);
 	}
 

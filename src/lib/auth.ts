@@ -28,6 +28,7 @@ const GOOGLE_AUTHORIZATION_URL =
  * `accessToken` and `accessTokenExpires`. If an error occurs,
  * returns the old token and an error property
  */
+// @ts-ignore
 async function refreshAccessToken(token) {
     try {
         const url =
