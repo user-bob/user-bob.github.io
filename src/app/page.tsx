@@ -1,6 +1,7 @@
 import { HScroll, HScrollItem } from "@/components/HScroll";
 import type { ProductProps } from "@/components/Product/Product";
 import ProductComponent from "@/components/Product/Product";
+import { getRandomIntInclusive } from "@/helpers/range";
 
 const products: ProductProps[] = [];
 
@@ -34,11 +35,11 @@ const productNames = [
   "Samsung Galaxy Tab S7+",
 ];
 
-export function getRandomIntInclusive(min: number, max: number): number {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
-}
+// export function getRandomIntInclusive(min: number, max: number): number {
+//   min = Math.ceil(min);
+//   max = Math.floor(max);
+//   return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+// }
 
 Array.from({ length: 15 }).map((_, i) => {
   const current = getRandomIntInclusive(600, 900);

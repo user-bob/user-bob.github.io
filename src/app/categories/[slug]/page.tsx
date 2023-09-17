@@ -5,6 +5,7 @@ import { FC } from "react";
 import { BiTrendingDown, BiTrendingUp } from "react-icons/bi";
 import { twMerge } from "tailwind-merge";
 import { Carousel } from "../../../../src";
+import { getRandomIntInclusive } from "@/helpers/range";
 
 const products: ProductProps[] = [];
 
@@ -37,12 +38,6 @@ const productNames = [
   "Apple iPad Pro 11",
   "Samsung Galaxy Tab S7+",
 ];
-
-export function getRandomIntInclusive(min: number, max: number): number {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
-}
 
 Array.from({ length: 15 }).map((_, i) => {
   const current = getRandomIntInclusive(600, 900);

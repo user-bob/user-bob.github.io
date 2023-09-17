@@ -9,6 +9,7 @@ import {Button} from "@material-tailwind/react";
 import {HiArrowLeft, HiArrowRight} from "react-icons/hi2";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import {Checkbox, PopoverComponent} from "@/components";
+import { getRandomIntInclusive } from "@/helpers/range";
 
 
 const sortOptions = [
@@ -66,11 +67,11 @@ const filters = [
     },
 ]
 
-export function getRandomIntInclusive(min: number, max: number): number {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
-}
+// export function getRandomIntInclusive(min: number, max: number): number {
+//     min = Math.ceil(min);
+//     max = Math.floor(max);
+//     return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+// }
 
 
 const products: ProductProps[] = []
@@ -569,4 +570,3 @@ const Pagination: FC<PaginationProps> = ({onCurrentPageChange, pages}) => {
 }
 
 export default SearchPage;
-

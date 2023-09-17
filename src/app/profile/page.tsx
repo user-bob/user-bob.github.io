@@ -10,6 +10,7 @@ import { IconType } from "react-icons";
 import { BiSolidCoupon } from "react-icons/bi";
 import { RiProductHuntFill } from "react-icons/ri";
 import { twMerge } from "tailwind-merge";
+import { getRandomIntInclusive } from "@/helpers/range";
 
 const contents = [
   {
@@ -62,11 +63,11 @@ const contents = [
   },
 ];
 
-export function getRandomIntInclusive(min: number, max: number): number {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
-}
+// export function getRandomIntInclusive(min: number, max: number): number {
+//   min = Math.ceil(min);
+//   max = Math.floor(max);
+//   return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+// }
 
 export interface CouponsGiftsPointsProps {
   name: string;

@@ -4,16 +4,17 @@ import React, {FC, useState} from 'react';
 import {useSearchParams} from "next/navigation";
 import {Button} from "@material-tailwind/react";
 import {HiArrowLeft, HiArrowRight} from "react-icons/hi2";
+import { getRandomIntInclusive } from "@/helpers/range";
 
 
 const notifications: any[] = [];
 const types = ["order", "message", "review", "other"];
 
-export function getRandomIntInclusive(min: number, max: number): number {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
-}
+// export function getRandomIntInclusive(min: number, max: number): number {
+//     min = Math.ceil(min);
+//     max = Math.floor(max);
+//     return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+// }
 
 
 Array.from({length: 8}).map((_, i) => {
