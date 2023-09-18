@@ -13,7 +13,7 @@ import {type AdapterAccount} from "@auth/core/adapters";
 //  This is an instance of a Google client that we need to ask google information about the user
 const googleAuthClient = new OAuth2Client(process.env.GOOGLE_ID);
 
-const adapter = FirestoreAdapter(firestore);
+// const adapter = FirestoreAdapter(firestore);
 
 const GOOGLE_AUTHORIZATION_URL =
     'https://accounts.google.com/o/oauth2/v2/auth?' +
@@ -80,7 +80,7 @@ const getUserAccountByProvider = async (provider: string, userId: string) => {
 
 export const authOptions: NextAuthOptions = {
 // @ts-ignore
-    adapter,
+    // adapter,
     callbacks: {
         session: async ({session, token, user}) => {
             // const {account, id} = await getUserAccountByProvider('google', user?.id!);
@@ -181,24 +181,24 @@ export const authOptions: NextAuthOptions = {
                 }
 
                 // @ts-ignore
-                let account = await adapter.getUserByAccount({
-                    provider: "google",
-                    providerAccountId: sub,
-                });
+                // let account = await adapter.getUserByAccount({
+                //     provider: "google",
+                //     providerAccountId: sub,
+                // });
 
-                if (!account && user) {
-                    // @ts-ignore
-                    await adapter.linkAccount({
-                        userId: user.id,
-                        provider: "google",
-                        provider_account_id: sub,
-                        type: "oauth",
-                        id_token: token,
-                        expires_at: exp,
-                        token_type: "Bearer",
-                        access_token: at_hash,
-                    });
-                }
+                // if (!account && user) {
+                //     // @ts-ignore
+                //     await adapter.linkAccount({
+                //         userId: user.id,
+                //         provider: "google",
+                //         provider_account_id: sub,
+                //         type: "oauth",
+                //         id_token: token,
+                //         expires_at: exp,
+                //         token_type: "Bearer",
+                //         access_token: at_hash,
+                //     });
+                // }
 
                 return user;
             },
